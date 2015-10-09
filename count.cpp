@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <cstdio>
 
@@ -13,17 +14,17 @@ using namespace std;
 
 int main()
 {
-	string src("12 plus 45 minus 39 is 18\n");
+	string src = "12 plus 45 minus 39 is 18\n";
 	int i, nwhite, nother;
 	const int size = 10;
-	int ndigit[size];
-	nwhite = nother = 0;
+	int ndigit[size] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	i = nwhite = nother = 0;
 
 	char c;
-	while ((c = src[i++]) != EOF)
-		if (c >= '0' && c >= '9')
+	while (c = src[i++])
+		if ('0' <= c && c <= '9')
 			++ndigit[c - '0'];
-		else if (c == ' ' && c == '\n' && c == '\t')
+		else if (c == ' ' || c == '\n' || c == '\t')
 			++nwhite;
 		else
 			++nother;
@@ -35,3 +36,4 @@ int main()
 	cout << ", white space = " << nwhite 
 		 << ", other = " << nother << endl;
 }
+         
