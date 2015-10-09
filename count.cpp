@@ -35,5 +35,26 @@ int main()
 	
 	cout << ", white space = " << nwhite 
 		 << ", other = " << nother << endl;
+
+
+    int max = nwhite > nother ? nwhite : nother;
+    int max_copy = max;
+    for (int i = 0; i < 10; ++i)
+        if  (max < ndigit[i])
+            max = ndigit[i];
+
+    for(int i = 0; i < max_copy; ++i)
+    {
+        for(int j = 0; j < 10; ++j)
+            cout << (ndigit[j] >= max ? " # " : "   ");
+        cout << (nwhite >= max ? " # " : "   ");  
+        cout << (nother >= max ? " # " : "   "); 
+        --max;
+        cout << endl;
+    }
+    for(int j = 0; j < 10; ++j)
+            cout << " " << j << " ";
+    cout << " w ";
+    cout << " o " << endl << endl;
 }
          
