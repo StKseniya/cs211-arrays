@@ -23,6 +23,6 @@ void my_qsort(int * arr, int n) {
 		return; // массив в 1 или 0 элементов уже упорядочен
 	int * pivotPtr = arr + rand() % n; // случайный выбор опорного элемента
 	int newPivotIdx = partition(arr, arr + n, *pivotPtr) - arr;
-	my_qsort(arr, newPivotIdx + 1);
-	my_qsort(arr + newPivotIdx, n - (newPivotIdx + 1));
+	my_qsort(arr, newPivotIdx);
+	my_qsort(arr + newPivotIdx, n - newPivotIdx);
 }
